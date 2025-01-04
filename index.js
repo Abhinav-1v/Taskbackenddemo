@@ -5,6 +5,7 @@ const app=express();
 const PORT=process.env.PORT || 5555;
 
 const taskrouter=require('./routes/task');
+const taskwithjsonrouter=require('./routes/taskwithjson');
 
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
@@ -19,6 +20,6 @@ app.get('/',(req,res)=>{
 });
 
 app.use('/tasks',taskrouter);
-
+app.use('/jsontasks',taskwithjsonrouter);
 
 app.listen(PORT,()=>console.log('Server Started at PORT:',PORT));
