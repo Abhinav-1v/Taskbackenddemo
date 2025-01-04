@@ -15,9 +15,10 @@ const taskschema=new mongoose.Schema({
     },
     status:{
         type:String,
+        enum: ['pending', 'in-progress', 'completed'],
         default:'pending'
     }
-});
+},{timestamps:true});
 
 const TASKS=new mongoose.model('tasks',taskschema);
 
